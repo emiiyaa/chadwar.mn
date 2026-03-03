@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHADWAR</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #f5f6fa;
+            color: #111;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: auto;
+        }
+        /* NAVBAR */
+        
+        header {
+            background: white;
+            padding: 20px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 800;
+            font-size: 20px;
+            color: #5B3DF5;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 500;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .auth {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-primary {
+            background: #5B3DF5;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        /* HERO */
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+        }
+        
+        .hero-text {
+            width: 50%;
+        }
+        
+        .badge {
+            background: #e6e9ff;
+            color: #5B3DF5;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+        }
+        
+        .highlight {
+            color: #5B3DF5;
+        }
+        
+        .hero p {
+            margin: 20px 0;
+            color: #555;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .search-box input {
+            padding: 12px;
+            width: 300px;
+            border-radius: 25px 0 0 25px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+        
+        .search-box button {
+            border-radius: 0 25px 25px 0;
+        }
+        
+        .hero img {
+            width: 500px;
+            border-radius: 20px;
+        }
+        /* CATEGORIES */
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section h2 {
+            margin-bottom: 30px;
+        }
+        
+        .categories {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .category-card {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        /* SERVICES */
+        
+        .services {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 25%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 15px;
+        }
+        
+        .price {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #5B3DF5;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">⚡ CHADWAR</div>
+
+            <div class="nav-links">
+                <a href="#">Нүүр хуудас</a>
+                <a href="#">Үйлчилгээ</a>
+                <a href="#">Чөлөөт ажилтнууд</a>
+            </div>
+
+            <div class="auth">
+                <a href="#">Нэвтрэх</a>
+                <button class="btn-primary">Бүртгүүлэх</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero container">
+        <div class="hero-text">
+            <div class="badge">Монголын №1 Фрийланс Платформ</div>
+
+            <h1>
+                Таны төсөлд тохирох <br>
+                <span class="highlight">Мэргэжлийн Ажилтан</span>
+            </h1>
+
+            <p>
+                Бизнесийн хэрэгцээнд нийцсэн шилдэг чөлөөт ажилтнуудыг холбож өгнө.
+            </p>
+
+            <div class="search-box">
+                <input type="text" placeholder="Ямар үйлчилгээ хайж байна вэ?">
+                <button class="btn-primary">Хайх</button>
+            </div>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Team working">
+    </section>
+
+    <section class="section container">
+        <h2>Үйлчилгээний ангилал</h2>
+
+        <div class="categories">
+            <div class="category-card">График Дизайн</div>
+            <div class="category-card">Програмчлал</div>
+            <div class="category-card">Маркетинг</div>
+            <div class="category-card">Орчуулга</div>
+            <div class="category-card">Видео & Анимэйшн</div>
+            <div class="category-card">Дуу & Аудио</div>
+        </div>
+    </section>
+
+    <section class="section container">
+        <h2>Эрэлттэй үйлчилгээ</h2>
+
+        <div class="services">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+                <div class="service-content">
+                    <h4>Вэб дизайн үйлчилгээ</h4>
+                    <p>4.9 ⭐ (128)</p>
+                    <div class="price">₮250,000</div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
+                <div class="service-content">
+                    <h4>Брэнд лого дизайн</h4>
+                    <p>5.0 ⭐ (342)</p>
+                    <div class="price">₮150,000</div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+                <div class="service-content">
+                    <h4>Сошиал маркетинг</h4>
+                    <p>4.8 ⭐ (24)</p>
+                    <div class="price">₮80,000</div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+                <div class="service-content">
+                    <h4>Орчуулгын үйлчилгээ</h4>
+                    <p>4.9 ⭐ (89)</p>
+                    <div class="price">₮30,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 CHADWAR. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
