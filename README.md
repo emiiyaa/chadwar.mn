@@ -1,2 +1,4 @@
 # chadwar.mn
-1. index.html zugeer test shuu guys sorry 
+home -erdem 
+login = newtreh  ////////// garid
+register = burtguuleh /////  garid
