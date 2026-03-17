@@ -204,7 +204,9 @@
             <div class="nav-links">
                 <a href="#">Нүүр хуудас</a>
                 <a href="#">Үйлчилгээ</a>
-                <a href="#">Чөлөөт ажилтнууд</a>
+                <button onclick="window.location.href='freelancers.html'">
+                    Чөлөөт ажилтнууд
+                </button>
             </div>
 
             <div class="auth">
