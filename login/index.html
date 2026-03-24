@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нэвтрэх | CHADWAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #222325;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+            background: #ffffff;
+            border: 1px solid #e4e5e7;
+            border-radius: 12px;
+            padding: 32px 28px;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1dbf73;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #62646a;
+            margin-bottom: 22px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            height: 44px;
+            border: 1px solid #c5c6c9;
+            border-radius: 8px;
+            padding: 0 12px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: #1dbf73;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 44px;
+            border: none;
+            border-radius: 8px;
+            background: #1dbf73;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background 0.2s;
+        }
+
+        .login-btn:hover {
+            background: #17a966;
+        }
+
+        .error {
+            margin-top: 12px;
+            color: #d93025;
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+        .hint {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #62646a;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="brand">CHADWAR</div>
+        <h1 class="title">Нэвтрэх</h1>
+        <p class="subtitle">Түр нэвтрэх систем (Mock Login)</p>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Имэйл</label>
+                <input id="email" type="email" placeholder="Имэйл хаягаа оруулна уу" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Нууц үг</label>
+                <input id="password" type="password" placeholder="Нууц үгээ оруулна уу" required>
+            </div>
+
+            <button type="submit" class="login-btn">Нэвтрэх</button>
+            <p id="errorText" class="error"></p>
+        </form>
+
+        <p class="hint">Туршилтын хэрэглэгч: student@num.edu.mn / 123456</p>
+        <p class="hint">Шинээр бүртгүүлэх бол <a href="/register">Бүртгүүлэх</a></p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const errorText = document.getElementById("errorText");
+
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            const registeredUserRaw = localStorage.getItem("registeredUser");
+            let registeredUser = null;
+
+            try {
+                registeredUser = registeredUserRaw ? JSON.parse(registeredUserRaw) : null;
+            } catch (error) {
+                registeredUser = null;
+            }
+
+            const isDefaultUser = email === "student@num.edu.mn" && password === "123456";
+            const isRegisteredUser = registeredUser && email === registeredUser.email && password === registeredUser.password;
+
+            if (isDefaultUser || isRegisteredUser) {
+                const loggedInUser = {
+                    email: isRegisteredUser ? registeredUser.email : "student@num.edu.mn",
+                    name: isRegisteredUser ? registeredUser.name : "Оюутан",
+                    role: isRegisteredUser ? registeredUser.role : "student",
+                    isLoggedIn: true
+                };
+
+                localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+                window.location.href = "/";
+                return;
+            }
+
+            errorText.textContent = "Имэйл эсвэл нууц үг буруу байна";
+        });
+    </script>
+</body>
+</html>

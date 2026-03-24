@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бүртгүүлэх | CHADWAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #222325;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 820px;
+            background: #ffffff;
+            border: 1px solid #e4e5e7;
+            border-radius: 12px;
+            padding: 32px 28px;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1dbf73;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #62646a;
+            margin-bottom: 24px;
+            font-size: 18px;
+        }
+
+        .form-section {
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            height: 44px;
+            border: 1px solid #c5c6c9;
+            border-radius: 8px;
+            padding: 0 12px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: #1dbf73;
+        }
+
+        .btn {
+            width: 100%;
+            height: 44px;
+            border: none;
+            border-radius: 8px;
+            background: #1dbf73;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #17a966;
+        }
+
+        .error {
+            margin-top: 10px;
+            color: #d93025;
+            font-size: 14px;
+            min-height: 20px;
+            text-align: center;
+        }
+
+        .roles-section {
+            display: none;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .role-card {
+            border: 2px solid #d5d6d8;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            min-height: 140px;
+        }
+
+        .role-card:hover {
+            border-color: #1dbf73;
+        }
+
+        .role-card.active {
+            border-color: #1dbf73;
+            background: #f2fff8;
+        }
+
+        .role-check {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 22px;
+            height: 22px;
+            margin: 0;
+            accent-color: #1dbf73;
+            cursor: pointer;
+        }
+
+        .role-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .role-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .role-text {
+            color: #62646a;
+            font-size: 18px;
+        }
+
+        .next-wrap {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 22px;
+        }
+
+        .next-btn {
+            width: auto;
+            min-width: 110px;
+            padding: 0 22px;
+            height: 46px;
+            border: none;
+            border-radius: 10px;
+            background: #1f2023;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            opacity: 0.45;
+        }
+
+        .next-btn.enabled {
+            opacity: 1;
+        }
+
+        .hint {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 14px;
+            color: #62646a;
+        }
+
+        @media (max-width: 840px) {
+            .title {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .roles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .role-title {
+                font-size: 24px;
+            }
+
+            .role-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="brand">CHADWAR</div>
+
+        <section id="registerSection" class="form-section">
+            <h1 class="title">Бүртгүүлэх</h1>
+            <p class="subtitle">Шинэ хэрэглэгчийн бүртгэл</p>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="name">Нэр</label>
+                    <input id="name" type="text" placeholder="Нэрээ оруулна уу" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Имэйл</label>
+                    <input id="email" type="email" placeholder="Имэйл хаягаа оруулна уу" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Нууц үг</label>
+                    <input id="password" type="password" placeholder="Нууц үгээ оруулна уу" minlength="6" required>
+                </div>
+
+                <button type="submit" class="btn">Үргэлжлүүлэх</button>
+                <p id="registerError" class="error"></p>
+            </form>
+            <p class="hint">Аль хэдийн бүртгэлтэй бол <a href="/login">Нэвтрэх</a></p>
+        </section>
+
+        <section id="rolesSection" class="roles-section">
+            <h2 id="welcomeTitle" class="title">Таны бүртгэл амжилттай үүслээ!</h2>
+            <p class="subtitle">Та ямар төрлөөр ашиглах вэ?</p>
+
+            <div class="roles-grid">
+                <div class="role-card" data-role="client">
+                    <input class="role-check" type="checkbox" aria-label="Үйлчлүүлэгч сонгох">
+                    <div class="role-icon">🛒</div>
+                    <h3 class="role-title">Би үйлчлүүлэгч</h3>
+                    <p class="role-text">Би үйлчилгээ захиална.</p>
+                </div>
+
+                <div class="role-card" data-role="freelancer">
+                    <input class="role-check" type="checkbox" aria-label="Фрийлансер сонгох">
+                    <div class="role-icon">💼</div>
+                    <h3 class="role-title">Би фрийлансер</h3>
+                    <p class="role-text">Би үйлчилгээ үзүүлнэ.</p>
+                </div>
+            </div>
+
+            <p id="roleError" class="error"></p>
+            <div class="next-wrap">
+                <button id="nextBtn" class="next-btn" type="button">Дараах</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const registerSection = document.getElementById("registerSection");
+        const rolesSection = document.getElementById("rolesSection");
+        const registerForm = document.getElementById("registerForm");
+        const registerError = document.getElementById("registerError");
+        const roleError = document.getElementById("roleError");
+        const welcomeTitle = document.getElementById("welcomeTitle");
+        const nextBtn = document.getElementById("nextBtn");
+        const roleCards = document.querySelectorAll(".role-card");
+
+        let draftUser = null;
+        let selectedRoles = [];
+
+        registerForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            registerError.textContent = "";
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim().toLowerCase();
+            const password = document.getElementById("password").value;
+
+            if (!name || !email || !password) {
+                registerError.textContent = "Бүх талбарыг бөглөнө үү.";
+                return;
+            }
+
+            if (password.length < 6) {
+                registerError.textContent = "Нууц үг хамгийн багадаа 6 тэмдэгт байна.";
+                return;
+            }
+
+            draftUser = {
+                name: name,
+                email: email,
+                password: password
+            };
+
+            welcomeTitle.textContent = name + ", таны бүртгэл амжилттай үүслээ!";
+            registerSection.style.display = "none";
+            rolesSection.style.display = "block";
+
+            selectedRoles = [];
+            roleCards.forEach(function(item) {
+                item.classList.remove("active");
+                const checkbox = item.querySelector(".role-check");
+                checkbox.checked = false;
+            });
+            nextBtn.classList.remove("enabled");
+        });
+
+        roleCards.forEach(function(card) {
+            const checkbox = card.querySelector(".role-check");
+
+            function toggleCard(event) {
+                if (event.target !== checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                }
+
+                card.classList.toggle("active", checkbox.checked);
+                selectedRoles = Array.from(roleCards)
+                    .filter(function(item) {
+                        return item.querySelector(".role-check").checked;
+                    })
+                    .map(function(item) {
+                        return item.dataset.role;
+                    });
+
+                roleError.textContent = "";
+
+                if (selectedRoles.length > 0) {
+                    nextBtn.classList.add("enabled");
+                } else {
+                    nextBtn.classList.remove("enabled");
+                }
+            }
+
+            card.addEventListener("click", function(event) {
+                toggleCard(event);
+            });
+
+            checkbox.addEventListener("click", function(event) {
+                event.stopPropagation();
+                toggleCard(event);
+            });
+        });
+
+        nextBtn.addEventListener("click", function() {
+            if (!draftUser) {
+                window.location.href = "/register";
+                return;
+            }
+
+            if (selectedRoles.length === 0) {
+                roleError.textContent = "Дор хаяж нэг төрлөө сонгоно уу.";
+                return;
+            }
+
+            const registeredUser = {
+                name: draftUser.name,
+                email: draftUser.email,
+                password: draftUser.password,
+                role: selectedRoles[0],
+                roles: selectedRoles
+            };
+
+            localStorage.setItem("registeredUser", JSON.stringify(registeredUser));
+            window.location.href = "/login";
+        });
+    </script>
+</body>
+</html>

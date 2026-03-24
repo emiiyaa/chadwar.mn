@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Чөлөөт ажилтнууд</title>
+    <link rel="stylesheet" href="freelancers.css">
+</head>
+<body>
+
+<div class="cv-container">
+    <h1>Чөлөөт ажилтнууд</h1>
+
+    <!-- 10 freelancer -->
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Бат">
+        <div class="cv-info">
+            <h2>Бат</h2>
+            <p>Мэргэжил: Frontend Developer</p>
+            <p>Туршлага: 3 жил</p>
+            <p>Утас: 99110001</p>
+            <button class="btn" onclick="openCV('Бат')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Сараа">
+        <div class="cv-info">
+            <h2>Сараа</h2>
+            <p>Мэргэжил: UI/UX Designer</p>
+            <p>Туршлага: 2 жил</p>
+            <p>Утас: 99110002</p>
+            <button class="btn" onclick="openCV('Сараа')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Тэмүүжин">
+        <div class="cv-info">
+            <h2>Тэмүүжин</h2>
+            <p>Мэргэжил: Backend Developer</p>
+            <p>Туршлага: 4 жил</p>
+            <p>Утас: 99110003</p>
+            <button class="btn" onclick="openCV('Тэмүүжин')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Наран">
+        <div class="cv-info">
+            <h2>Наран</h2>
+            <p>Мэргэжил: Graphic Designer</p>
+            <p>Туршлага: 5 жил</p>
+            <p>Утас: 99110004</p>
+            <button class="btn" onclick="openCV('Наран')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Бат-Эрдэнэ">
+        <div class="cv-info">
+            <h2>Бат-Эрдэнэ</h2>
+            <p>Мэргэжил: Mobile Developer</p>
+            <p>Туршлага: 3 жил</p>
+            <p>Утас: 99110005</p>
+            <button class="btn" onclick="openCV('Бат-Эрдэнэ')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Мөнхцэцэг">
+        <div class="cv-info">
+            <h2>Мөнхцэцэг</h2>
+            <p>Мэргэжил: QA Engineer</p>
+            <p>Туршлага: 2 жил</p>
+            <p>Утас: 99110006</p>
+            <button class="btn" onclick="openCV('Мөнхцэцэг')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="Чулуунбат">
+        <div class="cv-info">
+            <h2>Чулуунбат</h2>
+            <p>Мэргэжил: DevOps Engineer</p>
+            <p>Туршлага: 4 жил</p>
+            <p>Утас: 99110007</p>
+            <button class="btn" onclick="openCV('Чулуунбат')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/women/8.jpg" alt="Баярмаа">
+        <div class="cv-info">
+            <h2>Баярмаа</h2>
+            <p>Мэргэжил: Content Writer</p>
+            <p>Туршлага: 3 жил</p>
+            <p>Утас: 99110008</p>
+            <button class="btn" onclick="openCV('Баярмаа')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/men/9.jpg" alt="Ганбат">
+        <div class="cv-info">
+            <h2>Ганбат</h2>
+            <p>Мэргэжил: Data Analyst</p>
+            <p>Туршлага: 2 жил</p>
+            <p>Утас: 99110009</p>
+            <button class="btn" onclick="openCV('Ганбат')">CV харах</button>
+        </div>
+    </div>
+
+    <div class="cv-card">
+        <img src="https://randomuser.me/api/portraits/women/10.jpg" alt="Сувд">
+        <div class="cv-info">
+            <h2>Сувд</h2>
+            <p>Мэргэжил: Marketing Specialist</p>
+            <p>Туршлага: 3 жил</p>
+            <p>Утас: 99110010</p>
+            <button class="btn" onclick="openCV('Сувд')">CV харах</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="back">← Буцах</a>
+</div>
+
+<!-- Modal -->
+<div id="cvModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCV()">&times;</span>
+        <h2 id="modalName"></h2>
+        <p id="modalDetails">Энд CV-ийн дэлгэрэнгүй мэдээлэл харагдана.</p>
+    </div>
+</div>
+
+<script src="freelancers.js"></script>
+</body>
+</html>
